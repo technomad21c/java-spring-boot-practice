@@ -14,9 +14,9 @@ import java.net.UnknownHostException;
 
 
 @SpringBootApplication(scanBasePackages={"com.example.interceptor"})
-public class LogbackApplication implements CommandLineRunner {
+public class HandlerInterceptorApplication implements CommandLineRunner {
 
-    private static Logger logger = LoggerFactory.getLogger(LogbackApplication.class);
+    private static Logger logger = LoggerFactory.getLogger(HandlerInterceptorApplication.class);
 
     @Autowired
     private Environment env;
@@ -26,7 +26,7 @@ public class LogbackApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         logger.info("STARTING THE APPLICATION");
-        SpringApplication.run(LogbackApplication.class, args);
+        SpringApplication.run(HandlerInterceptorApplication.class, args);
         logger.info("APPLICATION  FINISHED");
     }
 
