@@ -11,7 +11,7 @@ import java.util.Optional;
 @RestController
 public class MyController {
 
-    @GetMapping(path = {"/employee/{id}", "/employee/{dept}/{name}"})
+    @GetMapping(value = {"/employee/{id}", "/employee/{dept}/{name}"})
     public String employee(@PathVariable Optional<String> id, @PathVariable Optional<String> dept, @PathVariable Optional<String> name) {
         Employee e = null;
         String res = null;
@@ -26,6 +26,24 @@ public class MyController {
         }
 
         return res;
+    }
+
+    @DeleteMapping(path = {"/employee/{id}", "/employee/{dept}/{id}"})
+    public String deleteEmployee(@PathVariable Optional<String> id, @PathVariable Optional<String> dept) {
+        Employee e = null;
+        String res = null;
+
+        if (id.isPresent()) {
+            e = new Employee(id.get(), null);
+
+            res = e.getId();
+        }
+        if (dept.isPresent()) {
+            e = new Employee(null, dept.get());
+            res = e.getName();
+        }
+
+        return "delete" + res;
     }
 
     @RequestMapping("/hello")
