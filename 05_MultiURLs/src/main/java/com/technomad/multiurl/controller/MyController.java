@@ -28,7 +28,7 @@ public class MyController {
         return res;
     }
 
-    @DeleteMapping(path = {"/employee/{id}", "/employee/{dept}/{id}"})
+    @DeleteMapping(value = {"/employee/{id}", "/employee/{dept}/{id}"})
     public String deleteEmployee(@PathVariable Optional<String> id, @PathVariable Optional<String> dept) {
         Employee e = null;
         String res = null;
